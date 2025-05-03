@@ -16,7 +16,7 @@ import Home from './client/components/home/Home';
 import Login from './client/components/login/Login';
 import Teacher from './teacher/Teacher';
 import TeacherDetails from './teacher/components/teacher details/TeacherDetails';
-import ScheduleTeacher from './teacher/components/schedule/scheduleTeacher';
+import ScheduleTeacher from './teacher/components/schedule/ScheduleTeacher';
 import AttendanceTeacher from './teacher/components/attendance/AttendanceTeacher';
 import ExaminationsTeacher from './teacher/components/examinations/ExaminationsTeacher';
 import NoticeTeacher from './teacher/components/notice/NoticeTeacher';
