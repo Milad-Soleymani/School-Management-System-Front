@@ -8,11 +8,11 @@ import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 
 export default function Gallery() {
-    
+
   const [open, setOpen] = React.useState(false);
   const [selectedSchool, setSelectedSchool] = React.useState(null);
 
-  const handleOpen =(school)=>{
+  const handleOpen = (school) => {
     setOpen(true);
     setSelectedSchool(school)
 
@@ -24,7 +24,7 @@ export default function Gallery() {
   }
 
 
-const style = {
+  const style = {
     position: 'absolute',
     top: '50%',
     left: '50%',
@@ -35,55 +35,55 @@ const style = {
     boxShadow: 24,
     p: 4,
   };
-  
+
   return (
     <Box>
-        
-    <ImageList sx={{ width: '100%', height: 'auto' }}>
-      {itemData.map((item) => (
+
+      <ImageList sx={{ width: '100%', height: 'auto' }}>
+        {itemData.map((item) => (
           <ImageListItem key={item.img}>
-          <img
-            srcSet={`${item.img}?w=248&fit=crop&auto=format&dpr=2 2x`}
-            src={`${item.img}?w=248&fit=crop&auto=format`}
-            alt={item.title}
-            loading="lazy"
-            onClick={()=> {handleOpen(item)}}
+            <img
+              srcSet={`${item.img}?w=248&fit=crop&auto=format&dpr=2 2x`}
+              src={`${item.img}?w=248&fit=crop&auto=format`}
+              alt={item.title}
+              loading="lazy"
+              onClick={() => { handleOpen(item) }}
             />
-          <ImageListItemBar
-            title={item.title}
-            subtitle={<span>by: {item.author}</span>}
-            position="below"
+            <ImageListItemBar
+              title={item.title}
+              subtitle={<span>by: {item.author}</span>}
+              position="below"
             />
-        </ImageListItem>
-      ))}
-    </ImageList>
+          </ImageListItem>
+        ))}
+      </ImageList>
 
-    <div>
-      <Button onClick={handleOpen}>Open modal</Button>
-      <Modal
-        open={open && selectedSchool}
-        onClose={handleClose}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-      >
-        <Box sx={style}>
-          <Typography id="modal-modal-title" variant="h6" component="h2">
-            Text in a modal
-          </Typography>
-          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-          </Typography>
-          <img
-            srcSet={`${selectedSchool.img}?w=248&fit=crop&auto=format&dpr=2 2x`}
-            src={`${selectedSchool.img}?w=248&fit=crop&auto=format`}
-            alt={"alt"}
+      <div>
+        <Button onClick={handleOpen}>Open modal</Button>
+        <Modal
+          open={open}
+          onClose={handleClose}
+          aria-labelledby="modal-modal-title"
+          aria-describedby="modal-modal-description"
+        >
+          <Box sx={style}>
+            <Typography id="modal-modal-title" variant="h6" component="h2">
+              Text in a modal
+            </Typography>
+            <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+              Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+            </Typography>
+            <img
+              srcSet={`${selectedSchool && selectedSchool.img}?w=248&fit=crop&auto=format&dpr=2 2x`}
+              src={`${selectedSchool && selectedSchool.img}?w=248&fit=crop&auto=format`}
+              alt={"alt"}
             />
-        </Box>
-      </Modal>
-    </div>
-  
+          </Box>
+        </Modal>
+      </div>
 
-      </Box>
+
+    </Box>
   );
 }
 
